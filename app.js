@@ -5,6 +5,8 @@ const generatePokemonPromises = () => Array(890).fill().map((_, index) =>
 
 const loaderContainer = document.querySelector('.loader')
 
+
+
 const insertPokemonDom = () => {
     const pokemonPromises = generatePokemonPromises()
   
@@ -16,10 +18,16 @@ const insertPokemonDom = () => {
                 
                 accumulator += `
                     <li class="card ${types[0]}">
+                         
                         <img loading="lazy" class="card-image" alt="${pokemon.name}" src="https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png"/>
                         <h2 class="card-title">${pokemon.id}. ${pokemon.name}</h2>
                         <p class="card-subtitle">${types.join(' | ')}</p>
-                    </li>`
+
+                        <button type="button" class="btn btn-primary" onclick="location.href = 'modal.html'">
+                            + Informações
+                        </button>
+                    </li>
+                    `
 
                 return accumulator
             }, '')
@@ -57,3 +65,7 @@ window.addEventListener('scroll', () => {
         showLoader()
     }
 })
+
+
+
+
